@@ -1,6 +1,6 @@
 # wizard
 
-![cover image](https://raw.githubusercontent.com/antibrand/disclaimer/master/cover.jpg)
+![cover image](https://raw.githubusercontent.com/antibrand/wizard/master/cover.jpg)
 
 Setup and install wizard for your web products.
 
