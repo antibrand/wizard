@@ -30,8 +30,6 @@ The config file also let's you modify any of the text strings.
 * `wizard_url` — The admin url slug where the wizard will exist
 * `child_action_btn_url` — The url for the child theme generator's "Learn more" link
 * `dev_mode` — Retain the "Theme Setup" menu item under the Admin > Appearance section for testing
-* `license_step` — Turn on license activation (compatible with Easy Digital Downloads Software Licensing)
-* `license_help_url` — A custom help link regarding licensing
 
 ### 3. Define your demo content import files
 
