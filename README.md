@@ -45,7 +45,7 @@ Once you have those files, you can upload them to your server (recommeded), or i
 
 1\. If you uploaded the import files to your server, then use this code example and edit it, to suit your file locations:
 
-```bash
+```php
 function merlin_import_files() {
     return [
         [
@@ -64,7 +64,7 @@ add_filter( 'merlin_import_files', 'merlin_import_files' );
 
 2\. If you included the import files somewhere in the theme, then use this code example:
 
-```bash
+```php
 function merlin_local_import_files() {
     return [
         [
