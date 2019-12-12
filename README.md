@@ -83,10 +83,6 @@ add_filter( 'wizard_import_files', 'wizard_local_import_files' );
 
 If you have multiple demo imports, then just define multiple arrays with appropriate data. For an example of two predefined demo imports, please look at the `wizard-filters-sample.php` file.
 
-#### Redux framework import
-
-If you are using the Redux Framework in your theme, then you can import it as well. Please look at the `wizard-filters-sample.php` file for an example on how to define the Redux import files.
-
 ### 5. Add filters
 
 Inside the package download exists a `wizard-filters-sample.php` file which includes examples of the different filters you may use to modify the wizard. A primary example would be to use to `wizard_generate_child_functions_php` filter to modify the contents of the generated child theme's `functions.php` file.
