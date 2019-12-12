@@ -2,7 +2,7 @@
 
 ![cover image](https://raw.githubusercontent.com/antibrand/wizard/master/cover.jpg)
 
-Setup and install wizard for your web products.
+A setup and install wizard for your web products.
 
 ## Usage
 
