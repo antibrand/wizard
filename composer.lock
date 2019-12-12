@@ -122,7 +122,7 @@
                     "homepage": "https://github.com/humanmade/WordPress-Importer/graphs/contributors"
                 }
             ],
-            "description": "Improved WP content importer used in OCDI plugin and MerlinWP.",
+            "description": "Improved WP content importer used in OCDI plugin and WizardWP.",
             "keywords": [
                 "content",
                 "import",

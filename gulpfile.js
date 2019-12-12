@@ -7,7 +7,7 @@ var pkg                     = require('./package.json');
 var project                 = pkg.name;
 var slug                    = pkg.slug;
 var version                 = pkg.version;
-var projectURL              = 'http://demo.merlinwp.dev/wp-admin/themes.php?page=merlin';
+var projectURL              = 'http://demo.wizardwp.dev/wp-admin/themes.php?page=wizard';
 
 // Translations.
 var text_domain             = '@@textdomain';
@@ -17,27 +17,27 @@ var bugReport               = pkg.author_uri;
 var lastTranslator          = pkg.author;
 var team                    = pkg.author_shop;
 var translatePath           = './languages/' + destFile;
-var translatableFiles       = ['./**/*.php', '!merlin-config-sample.php', '!merlin-filters-sample.php' ];
+var translatableFiles       = ['./**/*.php', '!wizard-config-sample.php', '!wizard-filters-sample.php' ];
 
 // Styles.
-var merlinStyleSRC          = './assets/scss/merlin.scss'; // Path to main .scss file.
-var merlinStyleDestination  = './assets/css/'; // Path to place the compiled CSS file.
-var merlinCssFiles          = './assets/css/**/*.css'; // Path to main .scss file.
-var merlinStyleWatchFiles   = './assets/scss/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
+var wizardStyleSRC          = './assets/css/wizard.scss'; // Path to main .scss file.
+var wizardStyleDestination  = './assets/css/'; // Path to place the compiled CSS file.
+var wizardCssFiles          = './assets/css/**/*.css'; // Path to main .scss file.
+var wizardStyleWatchFiles   = './assets/css/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
 
 // Scripts.
-var merlinScriptSRC         = './assets/js/merlin.js'; // Path to JS custom scripts folder.
-var merlinScriptDestination = './assets/js/'; // Path to place the compiled JS custom scripts file.
-var merlinScriptFile        = 'merlin'; // Compiled JS file name.
-var merlinScriptWatchFiles  = './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
+var wizardScriptSRC         = './assets/js/wizard.js'; // Path to JS custom scripts folder.
+var wizardScriptDestination = './assets/js/'; // Path to place the compiled JS custom scripts file.
+var wizardScriptFile        = 'wizard'; // Compiled JS file name.
+var wizardScriptWatchFiles  = './assets/js/*.js'; // Path to all *.scss files inside css folder and inside them.
 
 // Watch files.
 var projectPHPWatchFiles    = ['./**/*.php', '!_dist'];
 
 // Build files.
-var buildFiles              = ['./**', '!node_modules/**', '!dist/', '!demo/**', '!composer.json', '!composer.lock', '!.gitattributes', '!phpcs.xml', '!package.json', '!package-lock.json', '!gulpfile.js', '!LICENSE', '!README.md', '!assets/scss/**', '!merlin-config-sample.php', '!merlin-filters-sample.php' ];
-var buildDestination        = './dist/merlin/';
-var distributionFiles       = './dist/merlin/**/*';
+var buildFiles              = ['./**', '!node_modules/**', '!dist/', '!demo/**', '!composer.json', '!composer.lock', '!.gitattributes', '!phpcs.xml', '!package.json', '!package-lock.json', '!gulpfile.js', '!LICENSE', '!README.md', '!assets/css/**', '!wizard-config-sample.php', '!wizard-filters-sample.php' ];
+var buildDestination        = './dist/wizard/';
+var distributionFiles       = './dist/wizard/**/*';
 
 // Browsers you care about for autoprefixing. https://github.com/ai/browserslist
 const AUTOPREFIXER_BROWSERS = [
@@ -103,7 +103,7 @@ gulp.task( 'browser_sync', function() {
 });
 
 gulp.task('styles', function () {
-	gulp.src( merlinStyleSRC )
+	gulp.src( wizardStyleSRC )
 
 	.pipe( sass( {
 		errLogToConsole: true,
@@ -117,7 +117,7 @@ gulp.task('styles', function () {
 
 	.pipe( csscomb() )
 
-	.pipe( gulp.dest( merlinStyleDestination ) )
+	.pipe( gulp.dest( wizardStyleDestination ) )
 
 	.pipe( browserSync.stream() )
 
@@ -127,26 +127,26 @@ gulp.task('styles', function () {
 		maxLineLen: 10
 	}))
 
-	.pipe( gulp.dest( merlinStyleDestination ) )
+	.pipe( gulp.dest( wizardStyleDestination ) )
 
 	.pipe( browserSync.stream() )
 });
 
 gulp.task( 'scripts', function() {
-	gulp.src( merlinScriptSRC )
+	gulp.src( wizardScriptSRC )
 	.pipe( rename( {
-		basename: merlinScriptFile,
+		basename: wizardScriptFile,
 		suffix: '.min'
 	}))
 	.pipe( uglify() )
 	.pipe( lineec() )
-	.pipe( gulp.dest( merlinScriptDestination ) )
+	.pipe( gulp.dest( wizardScriptDestination ) )
 
 });
 
 gulp.task( 'default', ['clear', 'styles', 'scripts', 'browser_sync' ], function () {
 	gulp.watch( projectPHPWatchFiles, reload );
-	gulp.watch( merlinStyleWatchFiles, [ 'styles' ] );
+	gulp.watch( wizardStyleWatchFiles, [ 'styles' ] );
 });
 
 gulp.task("composer", function () {
@@ -205,7 +205,7 @@ gulp.task('build-variables', ['build-clean-and-copy'], function () {
 
 gulp.task( 'build-zip', ['build-variables'] , function() {
     return gulp.src( buildDestination+'/**' , { base: 'dist' } )
-    .pipe( zip( 'merlin.zip' ) )
+    .pipe( zip( 'wizard.zip' ) )
     .pipe( gulp.dest( './dist/' ) );
 });
 
